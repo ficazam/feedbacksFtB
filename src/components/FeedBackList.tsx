@@ -9,8 +9,10 @@ import { FeedbackContext } from '../store/feedbackContext'
 export const FeedBackList = () => {
   const ctx = useContext(FeedbackContext)
 
-  if (!ctx.feedbackData) {
+  if (!ctx.feedbackData && !ctx.loading) {
     return <h1>No Data to Display</h1>
+  } else if (ctx.loading) {
+    return <h1>L O A D I N G . . .</h1>
   }
 
   return (

@@ -42,14 +42,7 @@ export const FeedBackForm = () => {
     e.preventDefault();
 
     if(text.trim().length > 10 && ctx.feedbackData && !ctx.editMode) {
-      const lastItem:number = ctx.feedbackData.slice(-1)[0].id;
-        const newFeedback:FeedBackType = {
-            id: lastItem + 1,
-            rating: rating,
-            text: text
-        }
-
-        ctx.adder(newFeedback);
+        ctx.adder(text, rating);
     }
 
     if(text.trim().length > 10 && ctx.activeFeedback && ctx.editMode) {
